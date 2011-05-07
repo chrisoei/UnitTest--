@@ -1,5 +1,5 @@
 INSTALL_INCLUDE_DIR=/usr/local/include/UnitTest++
-INSTALL_LIB_DIR=/usr/local/include/UnitTest++
+INSTALL_LIB_DIR=/usr/local/lib
 CXX = g++
 CXXFLAGS ?= -g -Wall -W -ansi # -pedantic
 LDFLAGS ?= 
