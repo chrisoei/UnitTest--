@@ -1,3 +1,5 @@
+INSTALL_INCLUDE_DIR=/usr/local/include/UnitTest++
+INSTALL_LIB_DIR=/usr/local/include/UnitTest++
 CXX = g++
 CXXFLAGS ?= -g -Wall -W -ansi # -pedantic
 LDFLAGS ?= 
@@ -89,6 +91,11 @@ clean:
 	@$(call make-depend,$<,$@,$(subst .o,.d,$@))
 	@$(CXX) $(CXXFLAGS) -c $< -o $(patsubst %.cpp, %.o, $<)
 
+install:
+	@mkdir -p $(INSTALL_INCLUDE_DIR)/Posix
+	@install src/*.h $(INSTALL_INCLUDE_DIR)
+	@install src/Posix/*.h $(INSTALL_INCLUDE_DIR)/Posix
+	@install libUnitTest++.a $(INSTALL_LIB_DIR)
 
 ifneq "$(MAKECMDGOALS)" "clean"
 -include $(dependencies)
